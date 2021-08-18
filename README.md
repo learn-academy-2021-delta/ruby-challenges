@@ -13,7 +13,7 @@ This repository holds the Ruby pair programming challenges for the Delta 2021 co
 ### Naming Conventions
 Branches and file names should be in all lowercase letters:
 - Branch name: `topic-initials1-initials2` (ex. conditionals-aw-sp)
-- File name: `topic-student1-student2.js` (ex. conditionals-austin-sarah.js)
+- File name: `topic-student1-student2.js` (ex. conditionals-austin-sarah.rb)
 
 
 ### Informational Commands
