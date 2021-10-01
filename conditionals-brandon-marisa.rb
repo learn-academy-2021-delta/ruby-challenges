@@ -13,8 +13,8 @@ puts "User 2 pick rock, paper, or scissors."
 # Story: As a user, I can see a message in the terminal saying if user 1 or user 2 won the round.
 
 
-user1 = gets.chomp.to_s
-user2 = gets.chomp.to_s
+user1 = gets.chomp
+user2 = gets.chomp
 
 
 if user1 == 'rock' && user2 == 'scissors'
