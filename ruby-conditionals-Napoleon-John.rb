@@ -1,5 +1,5 @@
-puts 'type either "rock", "paper", or "scissors'
-answer = gets.chomp.to_i
+my_answer = 'rock,paper,scissors'
+a= gets.chomp.to_i
  p "#{answer}"
  if answer == 'rock'
   puts 'You lost!'
