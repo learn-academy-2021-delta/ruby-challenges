@@ -54,7 +54,21 @@ p groceries
 
 # For the following ColorPalette challenge use initialize and attr_accessor methods in your class
 # As a developer, I can create a class called ColorPalette.
+
+class ColorPalette
+    attr_accessor
+    def initialize(c1,c2,c3)
+        @color1 = c1
+        @color2 = c2
+        @color3 = c3
+    end
+end
+
 # As a developer, I can create three instances (objects) of class ColorPalette. (e.g green = ColorPalette.new)
+purple = ColorPalette.new('red','blue',)
+green = ColorPalette.new()
+blue = ColorPalette.new()
+
 # As a developer, I can initialize each inistance of the class ColorPalette with three colors. (e.g. green = ColorPalette.new('Chartreuse', 'Kelly', 'Seafoam'))
 # As a developer, I can print the value of each individual color.
 # As a developer, I can create a method called all_colors that when called will print a sentence telling me the three colors of a given palette.
