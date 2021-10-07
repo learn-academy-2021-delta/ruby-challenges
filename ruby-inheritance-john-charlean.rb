@@ -33,7 +33,7 @@
 
 class Animal #define the parent class
   attr_accessor :alive, :age #builtin get and set method
-  def initialize (alive_param, age_param)#initialization and creation of parameters...if not changing parameters then can leave blank
+  def initialize(alive_param, age_param)#initialization and creation of parameters...if not changing parameters then can leave blank
     @alive = true #upon initialization parameter is hard coded to true
     @age = 0 #upon initialization parameter is hard coded to 0
   end
@@ -42,10 +42,12 @@ class Animal #define the parent class
   end
 end
 
-pony = Animal.new #create an instance or object of the class
+pony = Animal.new 'alive', 1 #create an instance or object of the class
 p pony.alive #invokes the previous and prints out the value of the variable
+p pony.age
 p pony.aging 1 #have to run an argument with the method..in this case it is a value
-p pony.age #wanted the status of alive
+p pony.alive #wanted the status of alive
+p pony.age
 
 class Fish < Animal #inherits from Animal class
   def initialize(alive_param, age_param, cold_blooded)#how I want it to appear
