@@ -22,11 +22,9 @@ describe 'Task' do
         expect(my_task.status).to eq 'in progress'
         expect(my_task.status).to be_a String
     end
-    it 'can be marked as completed' do
+    it 'has a completed status' do
         my_task = Task.new
-        my_task.complete = 'completed'
-        expect(my_task.complete).to eq 'completed'
-        # expect{my_task.complete 'completed'}.to change{my_task.status}.from('in progress').to('completed')
-        expect(my_task.complete).to start_with('in progress').and end_with('completed')
+        expect{my_task.completed 'completed'}.to change{my_task.status}.from('in progress').to('completed')
+        # expect(my_task.completed).to start_with('in progress').and end_with('completed')
     end
 end
