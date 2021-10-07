@@ -2,6 +2,8 @@
 
 require 'rspec'
 require_relative 'task'
+require_relative 'task_list'
+
 
 describe 'Task' do
     it 'has to be real' do
@@ -37,8 +39,31 @@ describe 'Task' do
     #EXPECT: 'Task Title, Task Description, Task Status'
     it 'can print or show task info' do
         my_task = Task.new
-        expect(my_task.status).to eq 'This task is complete'
-
+        my_task.title = 'dirty dishes'
+        my_task.description = 'wash dishes'
+        my_task.status = 'done'
+        expect(my_task.get_info).to eq 'Task is dirty dishes. Description is wash dishes. Task is done.'
+    end
+    it 'lists all of my tasks' do
+        my_list = TaskList.new
+        task1 = Task.new
+        task2 = Task.new
+        my_list.add_task task1
+        my_list.add_task task2
+        expect(my_list.list).to be_a Array
+        expect(my_list.list).to contain_exactly(task1, task2)
+    end
+    it 'prints all completed tasks' do
+        my_list = TaskList.new
+        task1 = Task.new
+        task2 = Task.new
+        task3 = Task.new
+        task1.status = 'done'
+        task3.status = 'done'
+        my_list.add_task task1
+        my_list.add_task task2
+        my_list.add_task task3
+        expect(my_list.complete).to contain_exactly(task1, task3)
     end
 
     
