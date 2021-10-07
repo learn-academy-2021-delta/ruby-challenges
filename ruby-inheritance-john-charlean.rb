@@ -43,18 +43,27 @@ class Animal #define the parent class
 end
 
 pony = Animal.new 'alive', 1 #create an instance or object of the class
-p pony.alive #invokes the previous and prints out the value of the variable
-p pony.age
-p pony.aging 1 #have to run an argument with the method..in this case it is a value
-p pony.alive #wanted the status of alive
-p pony.age
+p pony.alive #invokes the previous and prints out the value of the variable--->true
+p pony.age #--->0
+p pony.aging 1 #have to run an argument with the method..in this case it is a value--->1
+p pony.alive #wanted the status of alive--->true
+p pony.age #--->1
 
 class Fish < Animal #inherits from Animal class
-  def initialize(alive_param, age_param, cold_blooded)#how I want it to appear
-    super(alive_param, age_param)#what I am taking from parent
-    @cold_blooded = cold_blooded
+  attr_accessor(:cold_blooded)#allow the new child varaibles to be accessed
+  def initialize(alive_param, age_param, cold_blooded = 'cold blooded')#how I want it to appear, hard coded the cold-blooded to `cold blooded` for initialization
+    super(alive_param, age_param)#variables I am taking from parent
+    @cold_blooded = cold_blooded #grabbing the variable from the child class
   end
 end
+
+pony = Fish.new true, 4#create an instance or object of the class so information can be grabbed on the next lines...need at least 2 because they are not hardcoded on current class
+p pony.alive #invokes the previous and prints out the value of the variable--->true
+p pony.age  #--->0
+p pony.cold_blooded  #--->"cold blooded"
+p pony.aging 4 #have to run an argument with the method..in this case it is a value of the age --->4
+p pony #shows the object with the changes output---> #<Fish:0x00007fd15e94a598 @alive=true, @age=4, @cold_blooded="cold blooded">
+
 # Story: As a developer, I can create a Fish that inherits from Animal. (Done)
 # Story: As a developer, I can initialize all of my fish to be cold_blooded (yes, there is one fish who is technically fully warm-blooded but we aren't going to talk about that).
 #
