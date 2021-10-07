@@ -54,6 +54,27 @@ describe 'TaskList' do
         expect(task_list.task_collection).not_to be_empty
         expect(task_list.task_collection).to contain_exactly(task1, task2, task3)
     end
+    it 'has completed tasks' do
+        task_list = TaskList.new
+        expect(task_list.completed).to be_a Array
+    end
+    it 'has completed items' do
+        task_list = TaskList.new
+        task1 = Task.new
+        task1.done 'done'
+        task2 = Task.new
+        task2.done 'done'
+        task3 = Task.new
+        task3.done 'done'
+        task_list.completed_task task1
+        task_list.completed_task task2
+        task_list.completed_task task3
+        # expect(task_list.completed).not_to be_empty
+        expect{task_list.completed}.to change{task_list.status}.from('in progress').to ('done')
+        # expect(task_list.completed).to contain(task.status 'done')
+        #once status is done, push to completed list
+        #when status is in progress, push to incomplete list 
+    end
 end
 # Story: As a developer with a TaskList, I can print the completed items.
 # Story: As a developer with a TaskList, I can print the incomplete items.
