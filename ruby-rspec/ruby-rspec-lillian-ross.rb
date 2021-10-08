@@ -19,11 +19,42 @@ describe 'Task' do
       expect(my_task.description).to eq 'wipe down surfaces'
       expect(my_task.description).to be_a String
     end
+    it 'has a default status of in progress' do
+      my_task = Task.new
+      # my_task.status = 'in progress'
+      expect(my_task.status).to eq 'in progress'
+      expect(my_task.status).to be_a String
+    end
     it 'marks a task as done' do
       my_task = Task.new
       # my_task.status = 'in progress'
-      expect{my_task.task_complete}.to change {my_task.status}.from ('in progress').to ('done')
+      expect{ my_task.task_complete }.to change { my_task.status }.from('in progress').to('done')
     end
+end
+
+describe 'Task_List' do
+  it 'has to be real' do
+    expect { Task_List.new }.to_not raise_error
+  end
+  it 'has a collection of completed tasks' do
+    my_completed_chores = Task_List.new
+    expect(my_completed_chores.task_collection).to be_a Array
+  end
+  it 'has all completed tasks in the completed chores array' do
+    my_completed_chores = Task_List.new
+    chore1 = Task.new
+    chore1.task_complete
+    #This changes the status of chore1 @status to = 'done'
+    chore2 = Task.new
+    chore2.task_complete
+    chore3 = Task.new
+    chore3.task_complete
+    my_completed_chores.add_completed_task chore1
+    my_completed_chores.add_completed_task chore2
+    my_completed_chores.add_completed_task chore3
+    expect(my_completed_chores.task_collection).not_to be_empty
+    expect(my_completed_chores.task_collection).to contain_exactly(chore1, chore2, chore3)
+  end
 end
 
 
