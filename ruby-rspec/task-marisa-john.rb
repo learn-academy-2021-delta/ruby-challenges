@@ -12,12 +12,12 @@
 
 class Task
    attr_accessor :title, :description, :status
-    def initialize 
+    def initialize
         @title = title
         @description = description
         @status = 'in progress'
     end
-    def complete status
+    def completed status
         @status = status
     end
 end
